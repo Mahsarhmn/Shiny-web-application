@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons">12b42a8f0f7c798243d223ce8cf7a0d518f6c50a</script>
+  <script type="application/html-dependencies">jquery[3.6.0];shiny-css[1.7.3];shiny-javascript[1.7.3];selectize[0.12.4];bootstrap[3.4.1]</script>
+<script src="jquery-3.6.0/jquery.min.js"></script>
+<link href="shiny-css-1.7.3/shiny.min.css" rel="stylesheet" />
+<script src="shiny-javascript-1.7.3/shiny.min.js"></script>
+<link href="selectize-0.12.4/css/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="selectize-0.12.4/js/selectize.min.js"></script>
+<script src="selectize-0.12.4/accessibility/js/selectize-plugin-a11y.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="bootstrap-3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+<link href="bootstrap-3.4.1/accessibility/css/bootstrap-accessibility.min.css" rel="stylesheet" />
+<script src="bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script src="bootstrap-3.4.1/accessibility/js/bootstrap-accessibility.min.js"></script>  <title></title>
+  <script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <h2></h2>
+    <script>if (window.MathJax) MathJax.Hub.Queue(["Typeset", MathJax.Hub]);</script>
+    <div class="row">
+      <div class="col-sm-4">
+        <form class="well" role="complementary">
+          <div class="form-group shiny-input-container">
+            <label class="control-label" id="dist-label" for="dist">Distribution</label>
+            <div>
+              <select id="dist"><option value="Normal" selected>Normal</option>
+<option value="T">T</option></select>
+              <script type="application/json" data-for="dist" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+            </div>
+          </div>
+          <div data-display-if="input.dist == &#39;Normal&#39; " data-ns-prefix="">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="mu-label" for="mu">
+                <h3>μ</h3>
+              </label>
+              <input id="mu" type="number" class="form-control" value="0"/>
+            </div>
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="sig-label" for="sig">
+                <h3>σ</h3>
+              </label>
+              <input id="sig" type="number" class="form-control" value="1"/>
+            </div>
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="Pro-label" for="Pro">Probability Area</label>
+              <div>
+                <select id="Pro"><option value="Less Than" selected>Less Than</option>
+<option value="Greater Than">Greater Than</option>
+<option value="Between two numbers">Between two numbers</option>
+<option value="Less Than or Greater Than">Less Than or Greater Than</option></select>
+                <script type="application/json" data-for="Pro" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+              </div>
+            </div>
+            <div data-display-if="input.Pro == &#39;Less Than&#39;" data-ns-prefix="">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xp-label" for="xp">Input a value more than μ -3*σ</label>
+                <input id="xp" type="number" class="form-control" value="0"/>
+              </div>
+            </div>
+            <div data-display-if="input.Pro == &#39;Greater Than&#39;" data-ns-prefix="">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpG-label" for="xpG">Input a value less than μ + 3*σ </label>
+                <input id="xpG" type="number" class="form-control" value="0"/>
+              </div>
+            </div>
+            <div data-display-if="input.Pro == &#39;Between two numbers&#39;" data-ns-prefix="">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpBL-label" for="xpBL">Input the Lower value (Should be more than μ - 3*σ)</label>
+                <input id="xpBL" type="number" class="form-control" value="-1"/>
+              </div>
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpBU-label" for="xpBU">Input the Upper value (Should be Less than μ + 3*σ)</label>
+                <input id="xpBU" type="number" class="form-control" value="1"/>
+              </div>
+            </div>
+            <div data-display-if="input.Pro == &#39;Less Than or Greater Than&#39;" data-ns-prefix="">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpOL-label" for="xpOL">Input the Lower value (Should be more than μ - 3*σ)</label>
+                <input id="xpOL" type="number" class="form-control" value="-1"/>
+              </div>
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpOU-label" for="xpOU">Input the Upper value (Should be Less than μ + 3*σ)</label>
+                <input id="xpOU" type="number" class="form-control" value="1"/>
+              </div>
+            </div>
+          </div>
+          <div data-display-if="input.dist == &#39;T&#39; " data-ns-prefix="">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="df-label" for="df">Input degree of freedom </label>
+              <input id="df" type="number" class="form-control" value="1"/>
+            </div>
+            <div class="form-group shiny-input-container">
+              <label class="control-label" id="ProT-label" for="ProT">Probability Area</label>
+              <div>
+                <select id="ProT"><option value="Less Than" selected>Less Than</option>
+<option value="Greater Than">Greater Than</option>
+<option value="Between two numbers">Between two numbers</option>
+<option value="Less Than or Greater Than">Less Than or Greater Than</option></select>
+                <script type="application/json" data-for="ProT" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+              </div>
+            </div>
+            <div data-display-if="input.ProT == &#39;Less Than&#39;" data-ns-prefix="">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpT-label" for="xpT">Input a value</label>
+                <input id="xpT" type="number" class="form-control" value="0"/>
+              </div>
+            </div>
+            <div data-display-if="input.ProT == &#39;Greater Than&#39;" data-ns-prefix="">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpGT-label" for="xpGT">Input a value </label>
+                <input id="xpGT" type="number" class="form-control" value="0"/>
+              </div>
+            </div>
+            <div data-display-if="input.ProT == &#39;Between two numbers&#39;" data-ns-prefix="">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpBLT-label" for="xpBLT">Input the Lower value</label>
+                <input id="xpBLT" type="number" class="form-control" value="-1"/>
+              </div>
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpBUT-label" for="xpBUT">Input the Upper value</label>
+                <input id="xpBUT" type="number" class="form-control" value="1"/>
+              </div>
+            </div>
+            <div data-display-if="input.ProT == &#39;Less Than or Greater Than&#39;" data-ns-prefix="">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpOLT-label" for="xpOLT">Input the Lower value</label>
+                <input id="xpOLT" type="number" class="form-control" value="-1"/>
+              </div>
+              <div class="form-group shiny-input-container">
+                <label class="control-label" id="xpOUT-label" for="xpOUT">Input the Upper value</label>
+                <input id="xpOUT" type="number" class="form-control" value="1"/>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-8" role="main">
+        <div id="distPlot" class="shiny-plot-output" style="width:100%;height:400px;"></div>
+        <div id="probability" class="shiny-html-output"></div>
+        <div id="ex4" class="shiny-html-output"></div>
+        <style>#probability{color: blue;
+                                 font-size: 30px;
+            font-style: bold;
+            }</style>
+        <style>#ex4{color: red;
+                                 font-size: 30px;
+            font-style: bold;
+            }</style>
+        <style>#xp{color: blue;
+                                 font-size: 30px;
+            font-style: bold;
+            }</style>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
